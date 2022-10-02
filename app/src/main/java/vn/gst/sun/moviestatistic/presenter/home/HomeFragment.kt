@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.core.os.bundleOf
+import androidx.lifecycle.lifecycleScope
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class HomeFragment: DaggerFragment() {
+
+    @Inject
+    lateinit var homeViewModel: HomeViewModel
 
     companion object {
         const val TAG = "HomeFragment"
@@ -26,6 +30,13 @@ class HomeFragment: DaggerFragment() {
     @Inject
     lateinit var appContext: Context
 
+    init {
+        lifecycleScope.launchWhenCreated {
+            homeViewModel.getPopularMovies()
+            homeViewModel.getTopRatedMovies()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,8 +45,13 @@ class HomeFragment: DaggerFragment() {
         return ComposeView(appContext).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                HomeFragmentView()
+                HomeFragmentView(viewModel = homeViewModel)
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        homeViewModel.release()
     }
 }

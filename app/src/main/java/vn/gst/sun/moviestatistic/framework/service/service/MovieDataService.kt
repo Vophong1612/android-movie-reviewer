@@ -5,10 +5,14 @@ import io.reactivex.Flowable
 import retrofit2.http.GET
 import vn.gst.sun.moviestatistic.framework.service.NetworkProvider
 import vn.gst.sun.moviestatistic.framework.service.data.GetPopularMoviesResponse
+import vn.gst.sun.moviestatistic.framework.service.data.GetTopRatedMoviesResponse
 
 interface MovieDataService {
     @GET("movie/popular")
     fun getPopularMovies(): Flowable<GetPopularMoviesResponse>
+
+    @GET("movie/top_rated")
+    fun getTopRatedMovies(): Flowable<GetTopRatedMoviesResponse>
 
     companion object {
         fun create(context: Context): MovieDataService {

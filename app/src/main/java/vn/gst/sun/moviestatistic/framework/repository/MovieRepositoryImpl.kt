@@ -11,11 +11,26 @@ class MovieRepositoryImpl(
     private val movieDataService: MovieDataService
 ) : MovieRepository {
 
-    override fun getPopularMovies(): Flowable<List<Movie>> {
+    override fun getPopularMovies(limit: Int): Flowable<List<Movie>> {
         val popularMoviesResponse = movieDataService.getPopularMovies()
         return popularMoviesResponse.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .map { it.movieReponses.map { movieRes -> movieRes.toMovie() } }
+            .map {
+                it.movieReponses.subList(0, limit).map {movieRes ->
+                    movieRes.toMovie()
+                }
+            }
+    }
+
+    override fun getTopRatedMovies(limit: Int): Flowable<List<Movie>> {
+        val popularMoviesResponse = movieDataService.getTopRatedMovies()
+        return popularMoviesResponse.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map {
+                it.movieReponses.subList(0, limit).map {movieRes ->
+                    movieRes.toMovie()
+                }
+            }
     }
 
     /*override fun getMovieDetail(movieId: Int): Movie? {

@@ -10,7 +10,7 @@ import vn.gst.sun.moviestatistic.R
 class APIKeyInterceptor(private val context: Context) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original: Request = chain.request()
-        val originalHttpUrl: HttpUrl = original.url()
+        val originalHttpUrl: HttpUrl = original.url
 
         val apiKey = context.getString(R.string.api_key)
 

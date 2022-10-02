@@ -1,18 +1,18 @@
 package vn.gst.sun.lib.data
 
 data class Movie(
-    private var voteCount: Int,
-    private val id: Int,
-    private val video: Boolean,
-    private val voteAverage: Double,
-    private val title: String,
-    private val popularity: Double,
-    private val posterPath: String,
-    private val originalLanguage: String,
-    private val originalTitle: String,
-    private val genreIds: List<Int> = ArrayList(),
-    private val backdropPath: String,
-    private val adult: Boolean,
-    private val overview: String,
-    private val releaseDate: String
+    var voteCount: Int,
+    val id: Int,
+    val video: Boolean,
+    val voteAverage: Double,
+    val title: String,
+    val popularity: Double,
+    val posterPath: String,
+    val originalLanguage: String,
+    val originalTitle: String,
+    val genreIds: List<Int> = ArrayList(),
+    val backdropPath: String,
+    val adult: Boolean,
+    val overview: String,
+    val releaseDate: String
 )
