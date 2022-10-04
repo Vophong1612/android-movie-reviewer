@@ -1,4 +1,4 @@
-package vn.gst.sun.moviestatistic.presenter.home.view
+package vn.gst.sun.moviestatistic.presenter.moviedetail.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -25,7 +25,7 @@ import vn.gst.sun.moviestatistic.Constants
 import vn.gst.sun.moviestatistic.R
 
 @Composable
-fun TopRatedMoviesItemView(
+fun SimilarMoviesItemView(
     modifier: Modifier = Modifier,
     movie: Movie,
     onMovieItemClick: (movieId: Int) -> Unit

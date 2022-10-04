@@ -5,7 +5,6 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import vn.gst.sun.moviestatistic.MyApplication
 import vn.gst.sun.moviestatistic.framework.di.activity.ActivityBindingModule
-import vn.gst.sun.moviestatistic.framework.di.activity.ActivityComponent
 import vn.gst.sun.moviestatistic.framework.di.application.context.ContextComponent
 import vn.gst.sun.moviestatistic.framework.di.presentation.ViewModelModule
 
@@ -21,8 +20,6 @@ import vn.gst.sun.moviestatistic.framework.di.presentation.ViewModelModule
     dependencies = [ContextComponent::class]
 )
 interface AppComponent : AndroidInjector<MyApplication> {
-
-    fun newActivityComponentBuilder(): ActivityComponent.Builder
 
     @Component.Factory
     interface Factory {

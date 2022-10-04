@@ -29,4 +29,6 @@ object Libs {
     const val COMPOSE_COIL = "io.coil-kt:coil-compose"
 
     const val COMPOSE_SWIPE_REFRESH = "com.google.accompanist:accompanist-swiperefresh"
+
+    const val COMPOSE_RATING_BAR = "com.github.a914-gowtham:compose-ratingbar"
 }

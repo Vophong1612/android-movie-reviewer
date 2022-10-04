@@ -5,6 +5,7 @@ import dagger.Provides
 import vn.gst.sun.lib.repository.MovieRepository
 import vn.gst.sun.lib.usecase.GetMovieDetail
 import vn.gst.sun.lib.usecase.GetPopularMovies
+import vn.gst.sun.lib.usecase.GetSimilarMovie
 import vn.gst.sun.lib.usecase.GetTopRatedMovies
 import vn.gst.sun.moviestatistic.framework.repository.UseCases
 
@@ -21,10 +22,14 @@ class UseCasesModule {
     fun provideTopRatedMovies(repository: MovieRepository) = GetTopRatedMovies(repository)
 
     @Provides
+    fun provideSimilarMovie(repository: MovieRepository) = GetSimilarMovie(repository)
+
+    @Provides
     @AppScope
     fun provideUseCases(
         getPopularMovies: GetPopularMovies,
         getMovieDetail: GetMovieDetail,
-        getTopRatedMovies: GetTopRatedMovies
-    ) = UseCases(getPopularMovies, getMovieDetail, getTopRatedMovies)
+        getTopRatedMovies: GetTopRatedMovies,
+        getSimilarMovie: GetSimilarMovie
+    ) = UseCases(getPopularMovies, getMovieDetail, getTopRatedMovies, getSimilarMovie)
 }

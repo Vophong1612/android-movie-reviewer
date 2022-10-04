@@ -85,6 +85,9 @@ dependencies {
 
     implementation(Libs.COMPOSE_SWIPE_REFRESH)
 
+    //https://github.com/a914-gowtham/compose-ratingbar
+    implementation(Libs.COMPOSE_RATING_BAR)
+
     testImplementation project(':core')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

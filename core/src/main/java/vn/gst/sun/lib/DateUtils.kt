@@ -16,4 +16,11 @@ object DateUtils {
 
         return outputFormat.format(date)
     }
+
+    fun getYear(inputDate: String): Int {
+        val inputFormat: DateFormat = SimpleDateFormat(yyyyMMddFormat, Locale.US)
+        val cal = Calendar.getInstance()
+        cal.time = inputFormat.parse(inputDate)
+        return cal.get(Calendar.YEAR)
+    }
 }

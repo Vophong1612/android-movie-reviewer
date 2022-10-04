@@ -16,7 +16,8 @@ import vn.gst.sun.moviestatistic.presenter.home.view.TopRatedMoviesView
 
 @Composable
 fun HomeFragmentView(
-    viewModel: HomeViewModel
+    viewModel: HomeViewModel,
+    onMovieItemClick: (movieId: Int) -> Unit
 ) {
     //Popular movies
     val popularMovies = viewModel.popularMovies.observeAsState(listOf()).value
@@ -36,13 +37,17 @@ fun HomeFragmentView(
             modifier = Modifier.background(Color.Black)
         ) {
             item {
-                PopularMoviesView(popularMovies = popularMovies)
+                PopularMoviesView(
+                    popularMovies = popularMovies,
+                    onMovieItemClick = onMovieItemClick
+                )
             }
 
             item {
                 TopRatedMoviesView(
                     topRatedMovies = topRatedMovies,
-                    modifier = Modifier.padding(top = 20.dp)
+                    modifier = Modifier.padding(top = 20.dp),
+                    onMovieItemClick = onMovieItemClick
                 )
             }
         }

@@ -11,6 +11,7 @@
     <color name="transparent">#00000000</color>
     <color name="grey">#F4F4F4</color>
     <color name="grey_50">#80F4F4F4</color>
+    <color name="rating_active">#ffffd740</color>
 
     <color name="coffee_1">#472D2D</color>
     <color name="coffee_1_50">#80472D2D</color>

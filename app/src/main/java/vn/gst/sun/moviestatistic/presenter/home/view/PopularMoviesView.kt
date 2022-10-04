@@ -34,7 +34,8 @@ import vn.gst.sun.moviestatistic.R
 @Composable
 fun PopularMoviesView(
     modifier: Modifier = Modifier,
-    popularMovies: List<Movie>
+    popularMovies: List<Movie>,
+    onMovieItemClick: (movieId: Int) -> Unit
 ) {
     Box(modifier = modifier) {
         if (popularMovies.isNotEmpty()) {
@@ -45,7 +46,10 @@ fun PopularMoviesView(
                 key = { popularMovies[it].id }
             ) { page ->
                 val movie = popularMovies[page]
-                PopularMovieViewItem(movie = movie)
+                PopularMovieViewItem(
+                    movie = movie,
+                    onMovieItemClick = onMovieItemClick
+                )
             }
         } else {
             PopuplarMoviesLoadingView()

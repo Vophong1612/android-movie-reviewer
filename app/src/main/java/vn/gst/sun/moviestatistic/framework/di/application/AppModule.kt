@@ -7,9 +7,11 @@ import vn.gst.sun.lib.repository.MovieRepository
 import vn.gst.sun.moviestatistic.framework.repository.MovieRepositoryImpl
 import vn.gst.sun.moviestatistic.framework.service.NetworkProvider
 import vn.gst.sun.moviestatistic.framework.service.service.MovieDataService
+import vn.gst.sun.moviestatistic.utils.Navigator
 
 @Module
 class AppModule {
+
     @Provides
     @AppScope
     fun provideNetworkProvider(context: Context): NetworkProvider = NetworkProvider.newInstance(context)

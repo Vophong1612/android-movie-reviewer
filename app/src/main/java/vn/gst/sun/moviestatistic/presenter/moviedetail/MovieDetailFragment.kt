@@ -1,4 +1,4 @@
-package vn.gst.sun.moviestatistic.presenter.home
+package vn.gst.sun.moviestatistic.presenter.moviedetail
 
 import android.content.Context
 import android.os.Bundle
@@ -14,20 +14,18 @@ import javax.inject.Inject
 import vn.gst.sun.moviestatistic.utils.Navigator
 import vn.gst.sun.moviestatistic.utils.findNavHost
 
-class HomeFragment : DaggerFragment() {
-
-    @Inject
-    lateinit var homeViewModel: HomeViewModel
-
-    @Inject
-    lateinit var navigator: Navigator
+class MovieDetailFragment : DaggerFragment() {
 
     companion object {
-        const val TAG = "HomeFragment"
+        private const val KEY_MOVIE_ID = "bundle_movie_id"
 
-        fun newInstance(): HomeFragment {
-            val fragment = HomeFragment()
-            fragment.arguments = bundleOf()
+        const val TAG = "MovieDetailFragment"
+
+        fun newInstance(movieId: Int): MovieDetailFragment {
+            val fragment = MovieDetailFragment()
+            fragment.arguments = bundleOf(
+                KEY_MOVIE_ID to movieId
+            )
             return fragment
         }
     }
@@ -35,10 +33,20 @@ class HomeFragment : DaggerFragment() {
     @Inject
     lateinit var appContext: Context
 
+    @Inject
+    lateinit var navigator: Navigator
+
+    @Inject
+    lateinit var movieDetailViewModel: MovieDetailViewModel
+
+    private var movieId: Int = 0
+
     init {
         lifecycleScope.launchWhenCreated {
-            homeViewModel.getPopularMovies()
-            homeViewModel.getTopRatedMovies()
+            movieId = arguments?.getInt(KEY_MOVIE_ID, 0) ?: 0
+
+            movieDetailViewModel.getMovieDetail(movieId = movieId)
+            movieDetailViewModel.getSimilarMovie(movieId = movieId)
         }
     }
 
@@ -50,19 +58,15 @@ class HomeFragment : DaggerFragment() {
         return ComposeView(appContext).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                HomeFragmentView(
-                    viewModel = homeViewModel,
-                    onMovieItemClick = {
-                        onMovieItemClick(it)
-                    }
-                )
+                MovieDetailView(viewModel = movieDetailViewModel,
+                    onSimilarMovieClick = {
+                        onSimilarMovieItemClick(it)
+                    })
             }
         }
     }
 
-    private fun onMovieItemClick(movieId: Int) {
+    private fun onSimilarMovieItemClick(movieId: Int) {
         navigator.toMovieDetail(findNavHost(), movieId)
     }
-
-
 }

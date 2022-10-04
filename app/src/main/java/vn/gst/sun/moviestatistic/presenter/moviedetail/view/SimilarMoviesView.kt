@@ -1,4 +1,4 @@
-package vn.gst.sun.moviestatistic.presenter.home.view
+package vn.gst.sun.moviestatistic.presenter.moviedetail.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,40 +18,39 @@ import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.moviestatistic.R
 
 @Composable
-fun TopRatedMoviesView(
+fun SimilarMoviesView(
     modifier: Modifier = Modifier,
-    topRatedMovies: List<Movie>,
+    similarMovies: List<Movie>,
     onMovieItemClick: (movieId: Int) -> Unit
 ) {
     Column(modifier = modifier) {
 
         Text(
-            text = stringResource(id = R.string.top_rated_movies_title),
-            modifier = Modifier
-                .padding(start = 20.dp),
+            text = stringResource(id = R.string.similar_movies_title),
+            modifier = Modifier,
             fontSize = 24.sp,
             fontWeight = FontWeight.ExtraBold,
             color = Color.White
         )
 
         LazyRow(
-            modifier = Modifier.padding(top = 10.dp),
+            modifier = Modifier.padding(top = 15.dp),
             contentPadding = PaddingValues(horizontal = 5.dp),
             horizontalArrangement = Arrangement.spacedBy(15.dp)
         ) {
-            if (topRatedMovies.isNotEmpty()) {
-                items(count = topRatedMovies.size, key = {
-                    topRatedMovies[it].id
+            if (similarMovies.isNotEmpty()) {
+                items(count = similarMovies.size, key = {
+                    similarMovies[it].id
                 }) {
-                    val movie = topRatedMovies[it]
-                    TopRatedMoviesItemView(
+                    val movie = similarMovies[it]
+                    SimilarMoviesItemView(
                         movie = movie,
                         onMovieItemClick = onMovieItemClick
                     )
                 }
             } else {
                 items(count = 20) {
-                    TopRatedMoviesItemLoadingView()
+                    SimilarMoviesItemLoadingView()
                 }
             }
         }

@@ -30,6 +30,8 @@ val composeCoil = "2.2.1"
 
 val composeSwipeRefresh = "0.26.0-alpha"
 
+val composeRatingBar = "1.2.3"
+
 dependencies {
     constraints {
         api("${Libs.ANDROIDX_CORE_KTX}:$androidxCoreKtx")
@@ -62,5 +64,7 @@ dependencies {
         api("${Libs.COMPOSE_COIL}:$composeCoil")
 
         api("${Libs.COMPOSE_SWIPE_REFRESH}:$composeSwipeRefresh")
+
+        api("${Libs.COMPOSE_RATING_BAR}:$composeRatingBar")
     }
 }
