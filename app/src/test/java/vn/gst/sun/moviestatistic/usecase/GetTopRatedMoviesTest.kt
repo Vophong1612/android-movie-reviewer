@@ -9,16 +9,17 @@ import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail
 import vn.gst.sun.lib.repository.MovieRepository
 import vn.gst.sun.lib.usecase.GetPopularMovies
+import vn.gst.sun.lib.usecase.GetTopRatedMovies
 
-class GetPopularMoviesTest {
+class GetTopRatedMoviesTest {
 
-    private lateinit var SUT: GetPopularMovies
+    private lateinit var SUT: GetTopRatedMovies
     private lateinit var repository: MovieRepositoryTestMock
 
     @Before
     fun setUp() {
         repository = MovieRepositoryTestMock()
-        SUT = GetPopularMovies(repository)
+        SUT = GetTopRatedMovies(repository)
     }
 
     @Test

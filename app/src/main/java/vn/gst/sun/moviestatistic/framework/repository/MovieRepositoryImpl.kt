@@ -15,41 +15,51 @@ class MovieRepositoryImpl @Inject constructor(
 
     override fun getPopularMovies(limit: Int): Flowable<List<Movie>> {
         val popularMoviesResponse = movieDataService.getPopularMovies()
-        return popularMoviesResponse.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map {
-                it.movieReponses.subList(0, limit).map {movieRes ->
+        return popularMoviesResponse.map {
+            if (it.movieReponses.size > limit) {
+                it.movieReponses.subList(0, limit).map { movieRes ->
+                    movieRes.toMovie()
+                }
+            } else {
+                it.movieReponses.map { movieRes ->
                     movieRes.toMovie()
                 }
             }
+        }
     }
 
     override fun getTopRatedMovies(limit: Int): Flowable<List<Movie>> {
         val topRatedMoviesResponse = movieDataService.getTopRatedMovies()
-        return topRatedMoviesResponse.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map {
-                it.movieReponses.subList(0, limit).map {movieRes ->
+        return topRatedMoviesResponse.map {
+            if (it.movieReponses.size > limit) {
+                it.movieReponses.subList(0, limit).map { movieRes ->
+                    movieRes.toMovie()
+                }
+            } else {
+                it.movieReponses.map { movieRes ->
                     movieRes.toMovie()
                 }
             }
+        }
     }
 
     override fun getMovieDetail(movieId: Int): Flowable<MovieDetail> {
         val movieResponse = movieDataService.getMovieDetail(movieId)
-        return movieResponse.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map { it.toMovieDetail() }
+        return movieResponse.map { it.toMovieDetail() }
     }
 
     override fun getSimilarMovies(movieId: Int, limit: Int): Flowable<List<Movie>> {
         val similarMoviesResponse = movieDataService.getSimilarMovie(movieId)
-        return similarMoviesResponse.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .map {
+        return similarMoviesResponse.map {
+            if (it.movieReponses.size > limit) {
                 it.movieReponses.subList(0, limit).map {movieRes ->
                     movieRes.toMovie()
                 }
+            } else {
+                it.movieReponses.map {movieRes ->
+                    movieRes.toMovie()
+                }
             }
+        }
     }
 }
