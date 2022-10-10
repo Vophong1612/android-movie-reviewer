@@ -1,8 +1,6 @@
 package vn.gst.sun.moviestatistic.framework.repository
 
 import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail

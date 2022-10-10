@@ -1,6 +1,6 @@
 package vn.gst.sun.lib.data
 
-class MovieDetail(
+data class MovieDetail(
     val adult: Boolean = false,
     val backdropPath: String = "",
     val budget: Int = 0,

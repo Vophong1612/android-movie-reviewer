@@ -14,7 +14,7 @@ import vn.gst.sun.lib.usecase.GetTopRatedMovies
 
 class GetMovieDetailTest {
 
-    private lateinit var SUT: GetMovieDetail
+    private lateinit var SUT: GetMovieDetail //system under test
     private lateinit var repository: MovieRepositoryTestMock
 
     companion object {

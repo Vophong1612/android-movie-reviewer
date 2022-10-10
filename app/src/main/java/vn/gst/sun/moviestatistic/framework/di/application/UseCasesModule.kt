@@ -23,13 +23,4 @@ class UseCasesModule {
 
     @Provides
     fun provideSimilarMovie(repository: MovieRepository) = GetSimilarMovie(repository)
-
-    @Provides
-    @AppScope
-    fun provideUseCases(
-        getPopularMovies: GetPopularMovies,
-        getMovieDetail: GetMovieDetail,
-        getTopRatedMovies: GetTopRatedMovies,
-        getSimilarMovie: GetSimilarMovie
-    ) = UseCases(getPopularMovies, getMovieDetail, getTopRatedMovies, getSimilarMovie)
 }

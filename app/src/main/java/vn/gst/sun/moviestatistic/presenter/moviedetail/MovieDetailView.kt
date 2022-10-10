@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail
 import vn.gst.sun.moviestatistic.presenter.moviedetail.view.MoviesDetailInfoView
 import vn.gst.sun.moviestatistic.presenter.moviedetail.view.MoviesDetailOverviewView
@@ -16,13 +18,11 @@ import vn.gst.sun.moviestatistic.presenter.moviedetail.view.SimilarMoviesView
 
 @Composable
 fun MovieDetailView(
-    viewModel: MovieDetailViewModel,
+    movieDetail: MovieDetail,
+    similarMovie: SnapshotStateList<Movie>,
     onSimilarMovieClick: (Int) -> Unit
 ) {
-    val movieDetail = viewModel.movieDetail.observeAsState(MovieDetail()).value
-    val similarMovie = viewModel.similarMovie.observeAsState(listOf()).value
-
-    LazyColumn(
+   LazyColumn(
         modifier = Modifier.background(Color.Black)
     ) {
         item {
