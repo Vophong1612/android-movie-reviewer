@@ -2,15 +2,12 @@ package vn.gst.sun.moviestatistic.presenter.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import vn.gst.sun.moviestatistic.UseCases
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import vn.gst.sun.lib.data.Movie
-import vn.gst.sun.moviestatistic.framework.repository.UseCases
 import vn.gst.sun.moviestatistic.presenter.viewmodel.BaseViewModel
 
 class HomeViewModel @Inject constructor(

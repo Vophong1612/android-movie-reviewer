@@ -1,12 +1,13 @@
 package vn.gst.sun.moviestatistic
 
 import android.app.Application
+import com.example.data.di.DaggerDataComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
-import vn.gst.sun.moviestatistic.framework.di.application.DaggerAppComponent
-import vn.gst.sun.moviestatistic.framework.di.application.context.DaggerContextComponent
+import vn.gst.sun.moviestatistic.di.application.DaggerAppComponent
+import vn.gst.sun.moviestatistic.di.application.context.DaggerContextComponent
 
 class MyApplication: Application(), HasAndroidInjector {
 
@@ -30,7 +31,9 @@ class MyApplication: Application(), HasAndroidInjector {
     private fun applicationInjector(): AndroidInjector<MyApplication> {
         val contextComponent = DaggerContextComponent.factory().create(this)
 
-        return DaggerAppComponent.factory().create(contextComponent)
+        val dataComponent = DaggerDataComponent.factory().create()
+
+        return DaggerAppComponent.factory().create(contextComponent, dataComponent)
     }
 
     private fun injectIfNecessary() {

@@ -1,14 +1,11 @@
 package vn.gst.sun.moviestatistic.usecase
 
 import android.annotation.SuppressLint
-import io.reactivex.Flowable
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import vn.gst.sun.lib.data.Movie
-import vn.gst.sun.lib.data.MovieDetail
-import vn.gst.sun.lib.repository.MovieRepository
-import vn.gst.sun.lib.usecase.GetPopularMovies
+import vn.gst.sun.lib.usecases.GetPopularMovies
 
 class GetPopularMoviesTest {
 

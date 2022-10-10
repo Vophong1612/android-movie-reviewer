@@ -45,6 +45,7 @@ android {
 dependencies {
     api(platform(project(':depconstraints')))
     kapt(platform(project(':depconstraints')))
+    implementation project(':data')
     implementation project(':core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

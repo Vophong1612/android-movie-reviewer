@@ -2,13 +2,13 @@ package vn.gst.sun.moviestatistic.presenter.moviedetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import vn.gst.sun.moviestatistic.UseCases
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail
-import vn.gst.sun.moviestatistic.framework.repository.UseCases
 import vn.gst.sun.moviestatistic.presenter.viewmodel.BaseViewModel
 
 class MovieDetailViewModel @Inject constructor(

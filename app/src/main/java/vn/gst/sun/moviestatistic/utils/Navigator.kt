@@ -1,7 +1,7 @@
 package vn.gst.sun.moviestatistic.utils
 
 import javax.inject.Inject
-import vn.gst.sun.moviestatistic.framework.di.application.AppScope
+import vn.gst.sun.moviestatistic.di.application.AppScope
 import vn.gst.sun.moviestatistic.presenter.NavHost
 import vn.gst.sun.moviestatistic.presenter.moviedetail.MovieDetailFragment
 

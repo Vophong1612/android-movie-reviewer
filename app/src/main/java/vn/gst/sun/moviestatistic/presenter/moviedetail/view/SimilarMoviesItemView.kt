@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -21,7 +20,7 @@ import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import vn.gst.sun.lib.DateUtils
 import vn.gst.sun.lib.data.Movie
-import vn.gst.sun.moviestatistic.Constants
+import com.example.data.Constants
 import vn.gst.sun.moviestatistic.R
 
 @Composable

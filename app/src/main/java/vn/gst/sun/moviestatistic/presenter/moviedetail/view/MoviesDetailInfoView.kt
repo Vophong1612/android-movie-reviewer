@@ -28,7 +28,7 @@ import com.gowtham.ratingbar.RatingBarConfig
 import com.gowtham.ratingbar.RatingBarStyle
 import vn.gst.sun.lib.DateUtils
 import vn.gst.sun.lib.data.MovieDetail
-import vn.gst.sun.moviestatistic.Constants
+import com.example.data.Constants
 import vn.gst.sun.moviestatistic.R
 
 @Composable

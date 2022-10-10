@@ -7,12 +7,8 @@ import org.junit.Before
 import org.junit.Test
 import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail
-import vn.gst.sun.moviestatistic.framework.service.data.GetPopularMoviesResponse
-import vn.gst.sun.moviestatistic.framework.service.data.GetSimilarMoviesResponse
-import vn.gst.sun.moviestatistic.framework.service.data.GetTopRatedMoviesResponse
-import vn.gst.sun.moviestatistic.framework.service.data.MovieDetailResponse
-import vn.gst.sun.moviestatistic.framework.service.data.MovieResponse
-import vn.gst.sun.moviestatistic.framework.service.service.MovieDataService
+import com.example.data.repositories.MovieRepositoryImpl
+import com.example.data.service.service.MovieDataService
 
 @SuppressLint("CheckResult")
 class MovieRepositoryImplTest {
@@ -142,50 +138,203 @@ class MovieRepositoryImplTest {
 
         var isSuccess = true
 
-        override fun getPopularMovies(): Flowable<GetPopularMoviesResponse> {
+        override fun getPopularMovies(): Flowable<com.example.data.data.GetPopularMoviesResponse> {
             return if (isSuccess) {
-                Flowable.just(GetPopularMoviesResponse(1, 20, 10,
-                    listOf(
-                        MovieResponse(0, 1, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", ""),
-                        MovieResponse(0, 2, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", "")
-                    ))
+                Flowable.just(
+                    com.example.data.data.GetPopularMoviesResponse(
+                        1, 20, 10,
+                        listOf(
+                            com.example.data.data.MovieResponse(
+                                0,
+                                1,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            ),
+                            com.example.data.data.MovieResponse(
+                                0,
+                                2,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            )
+                        )
+                    )
                 )
             } else {
-                Flowable.just(GetPopularMoviesResponse(0,0,0, listOf()))
+                Flowable.just(com.example.data.data.GetPopularMoviesResponse(0, 0, 0, listOf()))
             }
         }
 
-        override fun getTopRatedMovies(): Flowable<GetTopRatedMoviesResponse> {
+        override fun getTopRatedMovies(): Flowable<com.example.data.data.GetTopRatedMoviesResponse> {
             return if (isSuccess) {
-                Flowable.just(GetTopRatedMoviesResponse(1, 20, 10,
-                    listOf(
-                        MovieResponse(0, 1, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", ""),
-                        MovieResponse(0, 2, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", "")
-                    ))
+                Flowable.just(
+                    com.example.data.data.GetTopRatedMoviesResponse(
+                        1, 20, 10,
+                        listOf(
+                            com.example.data.data.MovieResponse(
+                                0,
+                                1,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            ),
+                            com.example.data.data.MovieResponse(
+                                0,
+                                2,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            )
+                        )
+                    )
                 )
             } else {
-                Flowable.just(GetTopRatedMoviesResponse(0,0,0, listOf()))
+                Flowable.just(com.example.data.data.GetTopRatedMoviesResponse(0, 0, 0, listOf()))
             }
         }
 
-        override fun getMovieDetail(movieId: Int): Flowable<MovieDetailResponse> {
+        override fun getMovieDetail(movieId: Int): Flowable<com.example.data.data.MovieDetailResponse> {
             return if (isSuccess) {
-                Flowable.just(MovieDetailResponse(false, "",0, arrayListOf() ,"", 123,"", "", "", "", 0.0, "", arrayListOf(), arrayListOf(), "", 0,0, arrayListOf(), "", "","", false, 0.0, 0))
+                Flowable.just(
+                    com.example.data.data.MovieDetailResponse(
+                        false,
+                        "",
+                        0,
+                        arrayListOf(),
+                        "",
+                        123,
+                        "",
+                        "",
+                        "",
+                        "",
+                        0.0,
+                        "",
+                        arrayListOf(),
+                        arrayListOf(),
+                        "",
+                        0,
+                        0,
+                        arrayListOf(),
+                        "",
+                        "",
+                        "",
+                        false,
+                        0.0,
+                        0
+                    )
+                )
             } else {
-                Flowable.just(MovieDetailResponse(false, "",0, arrayListOf() ,"", -1,"", "", "", "", 0.0, "", arrayListOf(), arrayListOf(), "", 0,0, arrayListOf(), "", "","", false, 0.0, 0))
+                Flowable.just(
+                    com.example.data.data.MovieDetailResponse(
+                        false,
+                        "",
+                        0,
+                        arrayListOf(),
+                        "",
+                        -1,
+                        "",
+                        "",
+                        "",
+                        "",
+                        0.0,
+                        "",
+                        arrayListOf(),
+                        arrayListOf(),
+                        "",
+                        0,
+                        0,
+                        arrayListOf(),
+                        "",
+                        "",
+                        "",
+                        false,
+                        0.0,
+                        0
+                    )
+                )
             }
         }
 
-        override fun getSimilarMovie(movieId: Int): Flowable<GetSimilarMoviesResponse> {
+        override fun getSimilarMovie(movieId: Int): Flowable<com.example.data.data.GetSimilarMoviesResponse> {
             return if (isSuccess) {
-                Flowable.just(GetSimilarMoviesResponse(1, 20, 10,
-                    listOf(
-                        MovieResponse(0, 1, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", ""),
-                        MovieResponse(0, 2, false, 0.0, "", 0.0, "","","", listOf(), "", false, "", "")
-                    ))
+                Flowable.just(
+                    com.example.data.data.GetSimilarMoviesResponse(
+                        1, 20, 10,
+                        listOf(
+                            com.example.data.data.MovieResponse(
+                                0,
+                                1,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            ),
+                            com.example.data.data.MovieResponse(
+                                0,
+                                2,
+                                false,
+                                0.0,
+                                "",
+                                0.0,
+                                "",
+                                "",
+                                "",
+                                listOf(),
+                                "",
+                                false,
+                                "",
+                                ""
+                            )
+                        )
+                    )
                 )
             } else {
-                Flowable.just(GetSimilarMoviesResponse(0,0,0, listOf()))
+                Flowable.just(com.example.data.data.GetSimilarMoviesResponse(0, 0, 0, listOf()))
             }
         }
 

@@ -17,3 +17,4 @@ rootProject.name = "MovieStatistic"
 include 'depconstraints'
 include ':app'
 include ':core'
+include ':data'

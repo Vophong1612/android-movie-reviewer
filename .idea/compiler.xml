@@ -6,6 +6,7 @@
       <module name="MovieStatistic.buildSrc" target="11" />
       <module name="MovieStatistic.buildSrc.main" target="11" />
       <module name="MovieStatistic.buildSrc.test" target="11" />
+      <module name="MovieStatistic.data" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
