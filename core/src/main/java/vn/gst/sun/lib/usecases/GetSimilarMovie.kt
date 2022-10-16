@@ -1,7 +1,8 @@
 package vn.gst.sun.lib.usecases
 
+import javax.inject.Inject
 import vn.gst.sun.lib.repositories.MovieRepository
 
-class GetSimilarMovie(private val repository: MovieRepository) {
+class GetSimilarMovie @Inject constructor (private val repository: MovieRepository) {
     operator fun invoke(movieId: Int) = repository.getSimilarMovies(movieId)
 }

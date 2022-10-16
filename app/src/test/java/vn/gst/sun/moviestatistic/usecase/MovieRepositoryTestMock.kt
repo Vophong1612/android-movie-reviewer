@@ -3,6 +3,7 @@ package vn.gst.sun.moviestatistic.usecase
 import io.reactivex.Flowable
 import vn.gst.sun.lib.data.Movie
 import vn.gst.sun.lib.data.MovieDetail
+import vn.gst.sun.lib.repositories.MovieRepository
 
 class MovieRepositoryTestMock : MovieRepository {
 

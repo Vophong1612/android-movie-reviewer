@@ -7,10 +7,7 @@ import vn.gst.sun.lib.usecases.GetSimilarMovie
 import vn.gst.sun.lib.usecases.GetTopRatedMovies
 
 @Component(
-    modules = [
-        DataModule::class,
-        UseCasesModule::class
-    ]
+    modules = [DataModule::class]
 )
 @DataScope
 interface DataComponent {
