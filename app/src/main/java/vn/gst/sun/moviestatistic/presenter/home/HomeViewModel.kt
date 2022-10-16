@@ -2,7 +2,7 @@ package vn.gst.sun.moviestatistic.presenter.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import vn.gst.sun.moviestatistic.UseCases
+import com.example.data.UseCases
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

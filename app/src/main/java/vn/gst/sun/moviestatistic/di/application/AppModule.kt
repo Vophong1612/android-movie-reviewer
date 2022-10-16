@@ -5,6 +5,6 @@ import dagger.Module
 @Module
 class AppModule {
 
-    //provide data
+    //provide app data
 
 }

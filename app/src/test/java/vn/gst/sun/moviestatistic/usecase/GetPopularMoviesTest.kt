@@ -5,17 +5,17 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import vn.gst.sun.lib.data.Movie
-import vn.gst.sun.lib.usecases.GetPopularMovies
+import vn.gst.sun.lib.usecases.GetPopularMoviesUseCase
 
 class GetPopularMoviesTest {
 
-    private lateinit var SUT: GetPopularMovies
+    private lateinit var SUT: GetPopularMoviesUseCase
     private lateinit var repository: MovieRepositoryTestMock
 
     @Before
     fun setUp() {
         repository = MovieRepositoryTestMock()
-        SUT = GetPopularMovies(repository)
+        SUT = GetPopularMoviesUseCase(repository)
     }
 
     @Test

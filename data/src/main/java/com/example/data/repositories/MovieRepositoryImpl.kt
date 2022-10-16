@@ -17,8 +17,7 @@ class MovieRepositoryImpl @Inject constructor(
         val popularMoviesResponse = movieDataService.getPopularMovies()
         return popularMoviesResponse.map {
             if (it.movieReponses.size > limit) {
-                it.movieReponses.subList(0, limit).map { movieRes ->
-                    movieRes.toMovie()
+                it.movieReponses.subList(0, limit).map { movieRes -> movieRes.toMovie()
                 }
             } else {
                 it.movieReponses.map { movieRes ->

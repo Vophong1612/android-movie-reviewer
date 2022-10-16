@@ -1,10 +1,11 @@
 package com.example.data.di
 
+import com.example.data.UseCases
 import dagger.Component
-import vn.gst.sun.lib.usecases.GetMovieDetail
-import vn.gst.sun.lib.usecases.GetPopularMovies
-import vn.gst.sun.lib.usecases.GetSimilarMovie
-import vn.gst.sun.lib.usecases.GetTopRatedMovies
+import vn.gst.sun.lib.usecases.GetMovieDetailUseCase
+import vn.gst.sun.lib.usecases.GetPopularMoviesUseCase
+import vn.gst.sun.lib.usecases.GetSimilarMovieUseCase
+import vn.gst.sun.lib.usecases.GetTopRatedMoviesUseCase
 
 @Component(
     modules = [DataModule::class]
@@ -12,13 +13,7 @@ import vn.gst.sun.lib.usecases.GetTopRatedMovies
 @DataScope
 interface DataComponent {
 
-    fun popularMovies(): GetPopularMovies
-
-    fun movieDetail(): GetMovieDetail
-
-    fun topRatedMovies(): GetTopRatedMovies
-
-    fun similarMovie(): GetSimilarMovie
+    fun usecases(): UseCases
 
     @Component.Factory
     interface Factory {

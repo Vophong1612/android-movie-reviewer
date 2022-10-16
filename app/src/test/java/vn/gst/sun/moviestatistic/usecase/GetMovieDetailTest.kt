@@ -5,11 +5,11 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import vn.gst.sun.lib.data.MovieDetail
-import vn.gst.sun.lib.usecases.GetMovieDetail
+import vn.gst.sun.lib.usecases.GetMovieDetailUseCase
 
 class GetMovieDetailTest {
 
-    private lateinit var SUT: GetMovieDetail //system under test
+    private lateinit var SUT: GetMovieDetailUseCase //system under test
     private lateinit var repository: MovieRepositoryTestMock
 
     companion object {
@@ -19,7 +19,7 @@ class GetMovieDetailTest {
     @Before
     fun setUp() {
         repository = MovieRepositoryTestMock()
-        SUT = GetMovieDetail(repository)
+        SUT = GetMovieDetailUseCase(repository)
     }
 
     @Test
