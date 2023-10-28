@@ -1,5 +1,6 @@
 package vn.gst.sun.moviestatistic.presenter.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.data.UseCases

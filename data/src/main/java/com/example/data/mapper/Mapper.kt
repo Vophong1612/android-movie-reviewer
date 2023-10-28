@@ -20,7 +20,7 @@ fun MovieResponse.toMovie() = Movie(
     originalLanguage,
     originalTitle,
     genreIds,
-    backdropPath,
+    backdropPath ?: "",
     adult,
     overview,
     releaseDate

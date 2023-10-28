@@ -44,7 +44,7 @@ data class MovieResponse(
 
     @SerializedName("backdrop_path")
     @Expose
-    val backdropPath: String,
+    val backdropPath: String?,
 
     @SerializedName("adult")
     @Expose

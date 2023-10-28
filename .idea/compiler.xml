@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
-      <module name="MovieStatistic.app" target="11" />
-      <module name="MovieStatistic.buildSrc" target="11" />
-      <module name="MovieStatistic.buildSrc.main" target="11" />
-      <module name="MovieStatistic.buildSrc.test" target="11" />
-      <module name="MovieStatistic.data" target="11" />
+      <module name="MovieStatistic.app" target="18" />
+      <module name="MovieStatistic.buildSrc" target="18" />
+      <module name="MovieStatistic.buildSrc.main" target="18" />
+      <module name="MovieStatistic.buildSrc.test" target="18" />
+      <module name="MovieStatistic.data" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>

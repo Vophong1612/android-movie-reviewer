@@ -10,14 +10,14 @@ import com.example.data.data.MovieDetailResponse
 
 interface MovieDataService {
     @GET("movie/popular")
-    fun getPopularMovies(): Flowable<com.example.data.data.GetPopularMoviesResponse>
+    fun getPopularMovies(): Flowable<GetPopularMoviesResponse>
 
     @GET("movie/top_rated")
-    fun getTopRatedMovies(): Flowable<com.example.data.data.GetTopRatedMoviesResponse>
+    fun getTopRatedMovies(): Flowable<GetTopRatedMoviesResponse>
 
     @GET("movie/{movie_id}")
-    fun getMovieDetail(@Path("movie_id") movieId: Int): Flowable<com.example.data.data.MovieDetailResponse>
+    fun getMovieDetail(@Path("movie_id") movieId: Int): Flowable<MovieDetailResponse>
 
     @GET("movie/{movie_id}/similar")
-    fun getSimilarMovie(@Path("movie_id") movieId: Int): Flowable<com.example.data.data.GetSimilarMoviesResponse>
+    fun getSimilarMovie(@Path("movie_id") movieId: Int): Flowable<GetSimilarMoviesResponse>
 }
